@@ -5,10 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
-@Slf4j
 @RestController
 @RequestMapping("admin")
 @RequiredArgsConstructor
@@ -19,5 +17,10 @@ public class BrokerController {
     @GetMapping("/status")
     public Mono<String> getStatus() {
         return client.getStatus();
+    }
+
+    @GetMapping("/balance")
+    public Mono<String> getBalance() {
+        return client.getBalance();
     }
 }
